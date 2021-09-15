@@ -43,7 +43,7 @@ const gethtmltopdf = async () => {
                   Key: 'doctorPrescription/questions.pdf',
                   ACL: 'public-read-write',
                   Body: response,
-                  contentType : 'application/pdf'
+                  ContentType : 'application/pdf'
                 };
                 s3.upload(uploadParams, (err, data) => {
                   if (err) {

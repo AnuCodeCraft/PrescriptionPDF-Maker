@@ -10,17 +10,16 @@ const gethtmltopdf = require('./gerenatepdf.js');
 app.use(bodyParser.urlencoded({ extended: false }));  
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
+app.get('/', (req,res) =>{
+ res.status(200).json({ "message" :" Poc for document upload, go to '/pdfgenerate' endpoint to upload the pdf "});
+})
+
+app.get('/pdfgenerate', (req, res) => {
     const result = gethtmltopdf();
-    if(result == true){
-        res.send("Pdf Generated");
-    }res.send("Some went wrong ");
+    res.status(200).json({ "message" :" Successfully pdf uploaded "});
     
 });
 
-app.get('/template-ejs', function(req, res) {
-        res.render(path.resolve(__dirname, 'views/index.ejs'));
-      });
 
 app.listen(3000, () => {
     console.log('App is listening on port 3000');
