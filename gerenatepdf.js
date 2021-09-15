@@ -35,7 +35,6 @@ const gethtmltopdf = async () => {
         let  options = { format: 'Letter' };
         const ejsData = ejs.render(htmlString, data);
 
-
         return await pdf.create(ejsData, options).toStream((err, response) => {
             if (err) return console.log(err);
             return new Promise((res, rej) => {
@@ -44,6 +43,7 @@ const gethtmltopdf = async () => {
                   Key: 'doctorPrescription/questions.pdf',
                   ACL: 'public-read-write',
                   Body: response,
+                  contentType : 'application/pdf'
                 };
                 s3.upload(uploadParams, (err, data) => {
                   if (err) {
