@@ -13,8 +13,7 @@ const s3 = new AWS.S3({
   region: process.env.AWS_REGION,
 });
 
-//console.log(accessKeyId, secretAccessKey,region)
-console.log(process.env.AWSID);
+// passing the dynamic data
 
 const data = {
   user: {
@@ -24,10 +23,13 @@ const data = {
         "problem":"cold and cough"
     }, 
 };  
+
+//generating the pdf and than uploading to S3
+
 const gethtmltopdf = async () => {
     try {
         
-        const filePathName = path.resolve(__dirname, 'example1/index.ejs');
+        const filePathName = path.resolve(__dirname, 'views/index.ejs');
         console.log(filePathName)
         const htmlString = fs.readFileSync(filePathName).toString();
         let  options = { format: 'Letter' };

@@ -16,8 +16,8 @@ app.get('/', (req, res) => {
     res.send("Pdf Generated");
 });
 
-app.get('/ejs', function(req, res) {
-        res.render(path.resolve(__dirname, 'views/template.ejs'));
+app.get('/template-ejs', function(req, res) {
+        res.render(path.resolve(__dirname, 'views/index.ejs'));
       });
 
 app.listen(3000, () => {
