@@ -7,7 +7,7 @@
 * Express
 * Html-pdf Package
 * EJS Template Engine
-* AWs-SDK 
+* AWS-SDK 
 
 #### To Run Project 
 * npm install
