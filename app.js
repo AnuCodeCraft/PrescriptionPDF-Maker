@@ -11,9 +11,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-    gethtmltopdf();
+    const result = gethtmltopdf();
+    if(result == true){
+        res.send("Pdf Generated");
+    }res.send("Some went wrong ");
     
-    res.send("Pdf Generated");
 });
 
 app.get('/template-ejs', function(req, res) {
